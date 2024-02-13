@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPAGenius Web</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Tab Links -->
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'CourseManagement')">Course Management</button>
+        <button class="tablinks" onclick="openTab(event, 'GPACalculation')">GPA Calculation</button>
+        <button class="tablinks" onclick="openTab(event, 'Recommendations')">Recommendations</button>
+        <button class="tablinks" onclick="openTab(event, 'Transcript')">Generate Transcript</button>
+    </div>
+
+    <!-- Tab Content for Course Management -->
+    <div id="CourseManagement" class="tabcontent">
+        <h1>Course Management</h1>
+        <form id="courseForm">
+            <div>
+                <label for="courseName">Course Name:</label>
+                <input type="text" id="courseName" required>
+            </div>
+            <div>
+                <label for="grade">Grade (A, B, C):</label>
+                <input type="text" id="grade" required>
+            </div>
+            <div>
+                <label for="creditHours">Credit Hours:</label>
+                <input type="number" id="creditHours" required>
+            </div>
+            <div>
+                <label for="courseType">Course Type:</label>
+                <select id="courseType">
+                    <option value="Regular">Regular</option>
+                    <option value="AP">AP</option>
+                    <option value="Dual Enrollment">Dual Enrollment</option>
+                </select>
+            </div>
+            <button type="button" id="addCourseBtn">Add Course</button>
+        </form>
+        <h2>Course List</h2>
+        <ul id="courseList"></ul>
+    </div>
+
+    <!-- Tab Content for GPA Calculation -->
+    <div id="GPACalculation" class="tabcontent">
+        <h1>GPA Calculation</h1>
+        <form id="gpaForm">
+            <div>
+                <label for="targetGPA">Target GPA:</label>
+                <input type="number" id="targetGPA" step="0.01" required>
+            </div>
+            <div>
+                <label for="futureCourses">Number of Future Courses:</label>
+                <input type="number" id="futureCourses" required>
+            </div>
+            <div>
+                <label for="futureCredits">Average Credit Hours for Future Courses:</label>
+                <input type="number" id="futureCredits" step="0.01" required>
+            </div>
+            <button type="button" id="calculateGpaBtn">Calculate GPA</button>
+        </form>
+        <div id="gpaResults">
+            <h2>Unweighted GPA</h2>
+            <p id="unweightedGPA"></p>
+            <h2>Weighted GPA</h2>
+            <p id="weightedGPA"></p>
+            <h2>Required Grades Distribution</h2>
+            <p id="gradesDistribution"></p>
+        </div>
+    </div>
+
+    <!-- Tab Content for Recommendations -->
+    <div id="Recommendations" class="tabcontent">
+        <h1>Recommendations</h1>
+        <div id="recommendationsContent">
+            <!-- Recommendations will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Tab Content for Transcript Generation -->
+    <div id="Transcript" class="tabcontent">
+        <h1>Generate Transcript</h1>
+        <button id="generatePdfBtn">Generate Transcript PDF</button>
+    </div>
+
+    <!-- Placeholder for JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
